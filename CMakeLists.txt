@@ -10,6 +10,7 @@ find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 
 qt_add_executable(appColorPicker2
     main.cpp utilitarios.h utilitarios.cpp
+    MANUAL_FINALIZATION
 )
 
 qt_add_qml_module(appColorPicker2
@@ -27,9 +28,15 @@ set_target_properties(appColorPicker2 PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
+set_property(TARGET appColorPicker2 APPEND PROPERTY
+    QT_ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/android
+)
+
 target_link_libraries(appColorPicker2
     PRIVATE Qt6::Quick)
 
 install(TARGETS appColorPicker2
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
+qt_finalize_executable(appColorPicker2)
