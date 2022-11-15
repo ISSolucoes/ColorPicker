@@ -74,19 +74,24 @@ Window {
 
                 util.copiaTextoCor(hexadecimal);
 
-                campoTextoCorHex.text = qsTr("Cor gerada e código copiado");
+                campoTextoCorHex.text = qsTr("Cor gerada e código copiado, agora basta pressionar um campo de texto e colar o código");
 
             }
         }
 
     }
 
-    Label {
+    Text {
         id: campoTextoCorHex
+        width: parent.width
+        height: parent.height
         text: qsTr("Toque para gerar uma cor")
-        font.pixelSize: 16
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        fontSizeMode: Text.Fit
+        font.pixelSize: 25
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignHCenter
+        padding: 20
+        wrapMode: Text.Wrap
     }
 
 
